@@ -17,26 +17,23 @@ import static org.openhab.binding.enera.internal.EneraBindingConstants.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.ws.rs.core.Response;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
-import org.eclipse.smarthome.core.thing.Bridge;
-import org.eclipse.smarthome.core.thing.ChannelUID;
-import org.eclipse.smarthome.core.thing.ThingStatus;
-import org.eclipse.smarthome.core.thing.ThingStatusDetail;
-import org.eclipse.smarthome.core.thing.binding.BaseBridgeHandler;
-import org.eclipse.smarthome.core.types.Command;
 import org.openhab.binding.enera.internal.model.AuthenticationHeaderValue;
 import org.openhab.binding.enera.internal.model.EneraAccount;
 import org.openhab.binding.enera.internal.util.AuthenticationHelper;
+import org.openhab.core.thing.Bridge;
+import org.openhab.core.thing.ChannelUID;
+import org.openhab.core.thing.ThingStatus;
+import org.openhab.core.thing.ThingStatusDetail;
+import org.openhab.core.thing.binding.BaseBridgeHandler;
+import org.openhab.core.types.Command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,14 +59,13 @@ public class EneraAccountHandler extends BaseBridgeHandler {
 
     private AuthenticationResultType tokens = new AuthenticationResultType();
     private String liveUri = new String();
+
     /**
      * @return the liveUri
      */
     public String getLiveUri() {
         return liveUri;
     }
-
-    
 
     public EneraAccountHandler(Bridge bridge) {
         super(bridge);
@@ -106,11 +102,12 @@ public class EneraAccountHandler extends BaseBridgeHandler {
             if (authResult.getAccessToken() != null && !authResult.getAccessToken().isEmpty()) {
                 tokens = authResult;
                 // no setting ONLINE here, because we _need_ the live URL first!
-                //updateStatus(ThingStatus.ONLINE);
+                // updateStatus(ThingStatus.ONLINE);
                 return tokens;
             } else {
                 tokens = new AuthenticationResultType();
-                updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.CONFIGURATION_ERROR, "Error during login! (Wrong credentials?)");
+                updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.CONFIGURATION_ERROR,
+                        "Error during login! (Wrong credentials?)");
             }
         } catch (NotAuthorizedException e) {
             updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.CONFIGURATION_ERROR,
@@ -174,7 +171,7 @@ public class EneraAccountHandler extends BaseBridgeHandler {
 
         String jsonResult = "";
         int responseCode;
-        
+
         conn.setRequestProperty("Authorization", String.format("%s %s", auth.getScheme(), auth.getParameter()));
         conn.setRequestProperty("X-Mandant", ENERA_MANDANT);
 
@@ -203,12 +200,13 @@ public class EneraAccountHandler extends BaseBridgeHandler {
             return new EneraAccount();
         }
         /*
-        Type listType = new TypeToken<ArrayList<EneraDevice>>() {
-        }.getType();
-        
-        ArrayList<EneraDevice> deviceList = gson.fromJson(jsonResult, listType);
-        */
-        
+         * Type listType = new TypeToken<ArrayList<EneraDevice>>() {
+         * }.getType();
+         * 
+         * ArrayList<EneraDevice> deviceList = gson.fromJson(jsonResult, listType);
+         */
+
+        // logger.warn(jsonResult);
         EneraAccount account = gson.fromJson(jsonResult, EneraAccount.class);
         this.liveUri = account.getLiveURI();
         if (this.liveUri != null && !this.liveUri.equals("")) {
@@ -218,9 +216,7 @@ public class EneraAccountHandler extends BaseBridgeHandler {
         return account;
     }
 
-
     private boolean isSignedIn() {
         return this.tokens.getIdToken() != null && !this.tokens.getIdToken().equals("");
     }
-
 }

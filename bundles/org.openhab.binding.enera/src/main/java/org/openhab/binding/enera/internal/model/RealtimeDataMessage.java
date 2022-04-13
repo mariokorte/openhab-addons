@@ -33,5 +33,4 @@ public class RealtimeDataMessage {
     public void setItems(List<DeviceDataItem> items) {
         this.items = items;
     }
-
 }

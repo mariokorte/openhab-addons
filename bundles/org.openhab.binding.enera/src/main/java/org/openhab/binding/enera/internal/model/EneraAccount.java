@@ -303,8 +303,4 @@ public class EneraAccount {
     public void setLiveURI(String liveURI) {
         LiveURI = liveURI;
     }
-
-    
-
-    
 }

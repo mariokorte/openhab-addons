@@ -7,14 +7,14 @@
   <parent>
     <groupId>org.openhab.addons.bundles</groupId>
     <artifactId>org.openhab.addons.reactor.bundles</artifactId>
-    <version>2.5.4-SNAPSHOT</version>
+    <version>3.2.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>org.openhab.binding.enera</artifactId>
 
   <name>openHAB Add-ons :: Bundles :: Enera Binding</name>
   <properties>
-    <bnd.importpackage>!com.amazonaws.*,!org.joda.convert.*,!com.sun.org.apache.xpath.*,!kotlin,!org.apache.log.*,!org.bouncycastle.*,!org.apache.avalon.*</bnd.importpackage>
+    <bnd.importpackage>!com.amazonaws.*,!com.sun.org.apache.xpath.*,!kotlin,!org.apache.log.*,!org.bouncycastle.*,!org.apache.avalon.*</bnd.importpackage>
   </properties>
 
   <dependencies>
@@ -41,7 +41,7 @@
     </dependency>
 
     <!-- above here are top level dependencies,
-        below here are dependencies of depencencies -->
+      below here are dependencies of depencencies -->
 
     <dependency>
       <groupId>com.fasterxml.jackson.dataformat</groupId>

@@ -296,7 +296,6 @@ public class AuthenticationHelper {
             } finally {
                 Arrays.fill(rawKeyMaterial, (byte) 0);
             }
-
         }
 
         /**

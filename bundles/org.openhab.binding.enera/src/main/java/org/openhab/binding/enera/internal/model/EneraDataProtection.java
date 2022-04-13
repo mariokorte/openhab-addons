@@ -48,6 +48,4 @@ public class EneraDataProtection {
     public void setAcceptedAt(Date acceptedAt) {
         AcceptedAt = acceptedAt;
     }
-
-    
 }
