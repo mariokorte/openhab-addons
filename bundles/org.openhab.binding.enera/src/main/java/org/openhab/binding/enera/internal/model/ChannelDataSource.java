@@ -27,5 +27,4 @@ public class ChannelDataSource {
     public void setAggregationType(AggregationType aggregationType) {
         this.aggregationType = aggregationType;
     }
-
 }

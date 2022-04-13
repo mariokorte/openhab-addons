@@ -6,7 +6,7 @@ public class EneraHousehold {
     private int FlatSize;
     private int AdultCount;
     private int ChildCount;
-    private String Address;
+    private EneraAddress Address;
 
     /**
      * @return the iD
@@ -81,16 +81,14 @@ public class EneraHousehold {
     /**
      * @return the address
      */
-    public String getAddress() {
+    public EneraAddress getAddress() {
         return Address;
     }
 
     /**
      * @param address the address to set
      */
-    public void setAddress(String address) {
+    public void setAddress(EneraAddress address) {
         Address = address;
     }
-
-    
 }

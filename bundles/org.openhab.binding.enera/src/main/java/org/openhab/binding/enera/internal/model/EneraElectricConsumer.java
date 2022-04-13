@@ -106,6 +106,4 @@ public class EneraElectricConsumer {
     public void setPurchaseYear(int purchaseYear) {
         PurchaseYear = purchaseYear;
     }
-
-    
 }

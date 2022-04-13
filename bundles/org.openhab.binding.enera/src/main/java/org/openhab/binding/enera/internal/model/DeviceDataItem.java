@@ -1,7 +1,7 @@
 package org.openhab.binding.enera.internal.model;
 
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 public class DeviceDataItem {
     private String DeviceId;
@@ -43,6 +43,4 @@ public class DeviceDataItem {
     public void setValues(List<DeviceValue> values) {
         this.values = values;
     }
-
-    
 }

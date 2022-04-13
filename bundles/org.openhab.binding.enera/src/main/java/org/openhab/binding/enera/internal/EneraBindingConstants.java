@@ -13,7 +13,7 @@
 package org.openhab.binding.enera.internal;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
-import org.eclipse.smarthome.core.thing.ThingTypeUID;
+import org.openhab.core.thing.ThingTypeUID;
 
 /**
  * The {@link EneraBindingConstants} class defines common constants, which are
@@ -50,7 +50,7 @@ public class EneraBindingConstants {
 
     // Enera master data API
     public static final String ENERA_BASE_URL = "https://krc71h6qkl.execute-api.eu-central-1.amazonaws.com/Prod";
-    //public static final String ENERA_DEVICES_URL = ENERA_BASE_URL + "/Devices";
+    // public static final String ENERA_DEVICES_URL = ENERA_BASE_URL + "/Devices";
     public static final String ENERA_ACCOUNT_URL = ENERA_BASE_URL + "/Account";
     public static final String ENERA_MANDANT = "enera";
 

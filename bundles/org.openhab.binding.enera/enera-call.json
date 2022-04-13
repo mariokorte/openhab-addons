@@ -1,0 +1,222 @@
+{
+    "id": "ba6afe0f-dee4-4895-9780-fd7de70f7944",
+    "FirstName": "Mario",
+    "LastName": "Korte",
+    "Salutation": "Herr",
+    "Street": "Hesterkrugstraße 8a",
+    "City": "Rastede",
+    "PostalCode": null,
+    "EnergySupplier": null,
+    "Country": null,
+    "MobilePhone": "01701248710",
+    "BirthDate": "1981-05-03",
+    "Name": "Mario Korte",
+    "IsProsumer": false,
+    "ShowAdapterPlugs": false,
+    "Households": [
+        {
+            "ID": "ed202ae1-d12c-41e5-b238-ca05ecf6b821",
+            "FlatSize": 123,
+            "AdultCount": 2,
+            "ChildCount": 2,
+            "Name": null,
+            "Address": {
+                "City": "Rastede",
+                "ZipCode": "26180",
+                "Street": "Hesterkrugstraße 8a"
+            },
+            "HasProducer": false,
+            "AllowDeviceOnboarding": true
+        }
+    ],
+    "ElectricConsumers": [
+        {
+            "Name": "Backofen",
+            "Type": "Backofen",
+            "Brand": null,
+            "UsageFrequency": 1,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2013,
+            "ID": 1
+        },
+        {
+            "Name": "Fön",
+            "Type": "Fön",
+            "Brand": null,
+            "UsageFrequency": 1,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2011,
+            "ID": 2
+        },
+        {
+            "Name": "Geschirrspülmaschine",
+            "Type": "Geschirrspülmaschine",
+            "Brand": "Siemens",
+            "UsageFrequency": 1,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2019,
+            "ID": 3
+        },
+        {
+            "Name": "Herd",
+            "Type": "Herd",
+            "Brand": "AEG",
+            "UsageFrequency": 2,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2013,
+            "ID": 4
+        },
+        {
+            "Name": "Kaffeemaschine",
+            "Type": "Kaffeemaschine",
+            "Brand": "Philips",
+            "UsageFrequency": 3,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2016,
+            "ID": 5
+        },
+        {
+            "Name": "Kühl-Gefrierkombi",
+            "Type": "Kühl-Gefrierkombi",
+            "Brand": "AEG",
+            "UsageFrequency": 1,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2013,
+            "ID": 6
+        },
+        {
+            "Name": "Mikrowelle",
+            "Type": "Mikrowelle",
+            "Brand": null,
+            "UsageFrequency": 2,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2012,
+            "ID": 7
+        },
+        {
+            "Name": "Musikanlage",
+            "Type": "Musikanlage",
+            "Brand": null,
+            "UsageFrequency": 3,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2016,
+            "ID": 8
+        },
+        {
+            "Name": "PC",
+            "Type": "PC",
+            "Brand": null,
+            "UsageFrequency": 1,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2015,
+            "ID": 9
+        },
+        {
+            "Name": "Spielekonsole (z.B. Xbox)",
+            "Type": "Spielekonsole (z.B. Xbox)",
+            "Brand": null,
+            "UsageFrequency": 2,
+            "UsageFrequencyUnit": 1,
+            "PurchaseYear": 2019,
+            "ID": 10
+        },
+        {
+            "Name": "TV",
+            "Type": "TV",
+            "Brand": "Philips",
+            "UsageFrequency": 3,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2017,
+            "ID": 11
+        },
+        {
+            "Name": "Staubsauger",
+            "Type": "Staubsauger",
+            "Brand": null,
+            "UsageFrequency": 2,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2017,
+            "ID": 12
+        },
+        {
+            "Name": "TV",
+            "Type": "TV",
+            "Brand": null,
+            "UsageFrequency": 1,
+            "UsageFrequencyUnit": 0,
+            "PurchaseYear": 2019,
+            "ID": 13
+        },
+        {
+            "Name": "Wäschetrockner",
+            "Type": "Wäschetrockner",
+            "Brand": "Bosch",
+            "UsageFrequency": 4,
+            "UsageFrequencyUnit": 1,
+            "PurchaseYear": 2014,
+            "ID": 14
+        },
+        {
+            "Name": "Waschmaschine",
+            "Type": "Waschmaschine",
+            "Brand": "Bosch",
+            "UsageFrequency": 4,
+            "UsageFrequencyUnit": 1,
+            "PurchaseYear": 2012,
+            "ID": 15
+        },
+        {
+            "Name": "Wallbox",
+            "Type": "Wallbox",
+            "Brand": "Heidelberg",
+            "UsageFrequency": 2,
+            "UsageFrequencyUnit": 1,
+            "PurchaseYear": 2020,
+            "ID": 16
+        }
+    ],
+    "DataProtection": {
+        "RegulationsAccepted": true,
+        "AcceptedAt": "2021-09-03T18:47:14.631401+00:00",
+        "Version": 6,
+        "PrivacyConsentInfo": [
+            {
+                "Key": "AcceptedContacting",
+                "Version": 1,
+                "updatedAt": "2021-09-01T16:00:20.325975+00:00",
+                "accepted": false
+            },
+            {
+                "Key": "AcceptedServiceDevelopment",
+                "Version": 1,
+                "updatedAt": "2021-09-01T15:59:14.492857+00:00",
+                "accepted": false
+            }
+        ]
+    },
+    "ID": "ba6afe0f-dee4-4895-9780-fd7de70f7944",
+    "Email": "enera@mariokorte.de",
+    "Devices": [
+        {
+            "ID": "6da4ec17-eacc-42fc-bae5-6abc19607353",
+            "Name": null,
+            "ParentDeviceID": "00000000-0000-0000-0000-000000000000",
+            "HouseholdID": "ed202ae1-d12c-41e5-b238-ca05ecf6b821",
+            "MeterID": "1DZG0060056487",
+            "Brand": "smart-me",
+            "Serial": "9401262-400",
+            "RegisteredAt": "2019-08-21T11:37:58.854+00:00",
+            "Pricing": {
+                "AdvancePayment": 200,
+                "BasicRate": 14.92,
+                "EnergyRate": 0.3,
+                "Type": "MONTHLY"
+            },
+            "ProductionPricing": null,
+            "IsProductionMeter": false,
+            "IsInstallationCompleted": true,
+            "IsAdapterPlug": false
+        }
+    ],
+    "LiveURI": "wss://a36tbon6s4xq11-ats.iot.eu-central-1.amazonaws.com/mqtt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA32D2HMOBIX66DT3D%2F20220411%2Feu-central-1%2Fiotdevicegateway%2Faws4_request&X-Amz-Date=20220411T140755Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a43cd9b6985e94fbe525b56ef13727a1e7bb0507a9287ff4b3f575fc2d3bb2fb&X-Amz-Security-Token=FwoGZXIvYXdzEJj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDFSCVDp3%2F2NShwnhRyKnAbMM5RYIy6teteCW5ZluVD3KPDOCFiFIWW9pSBDN2QjlmR%2FHmqrt%2BRa10BYEDLgpi9QNXVi4gvGrX6ERCJIxe7jgXXqVWSeQWDX8D5pSUobhJ5F5NIIIhc0Fak2cjwAnatJhwJUQ5XZM7%2FN1Bli4h0GM%2BBVm7laE3kVUfbhs%2FQ1szvHwjlDOvhTuXKvGuLidMpVp%2FdgJyxC84qZcnPAyfzIM9UaZhqTeKLvs0JIGMi0gg4lwpcVXZdbmGYiZYq9jpc9Uz3UrtBAGYnuJzhmyhEO3K42B5CrUYFwYlnk%3D"
+}
