@@ -113,12 +113,9 @@
     <module>org.openhab.binding.ecotouch</module>
     <module>org.openhab.binding.ekey</module>
     <module>org.openhab.binding.elerotransmitterstick</module>
-<<<<<<< HEAD
     <module>org.openhab.binding.energenie</module>
     <module>org.openhab.binding.enigma2</module>
-=======
     <module>org.openhab.binding.enera</module>
->>>>>>> 22745ff1b1 ([enera] Enera binding initial contribution (#7312))
     <module>org.openhab.binding.enocean</module>
     <module>org.openhab.binding.enphase</module>
     <module>org.openhab.binding.enturno</module>
