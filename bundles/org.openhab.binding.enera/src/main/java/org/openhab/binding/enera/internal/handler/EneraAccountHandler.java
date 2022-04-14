@@ -12,18 +12,12 @@
  */
 package org.openhab.binding.enera.internal.handler;
 
-import static org.openhab.binding.enera.internal.EneraBindingConstants.*;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.Date;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.ws.rs.core.Response;
-
+import com.amazonaws.services.cognitoidentity.model.NotAuthorizedException;
+import com.amazonaws.services.cognitoidp.model.AuthenticationResultType;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.openhab.binding.enera.internal.model.AuthenticationHeaderValue;
 import org.openhab.binding.enera.internal.model.EneraAccount;
@@ -37,12 +31,16 @@ import org.openhab.core.types.Command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.amazonaws.services.cognitoidentity.model.NotAuthorizedException;
-import com.amazonaws.services.cognitoidp.model.AuthenticationResultType;
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.interfaces.DecodedJWT;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import javax.net.ssl.HttpsURLConnection;
+import javax.ws.rs.core.Response;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+
+import static org.openhab.binding.enera.internal.EneraBindingConstants.*;
 
 /**
  * The {@link EneraAccountHandler} is responsible for handling commands, which are
@@ -134,14 +132,14 @@ public class EneraAccountHandler extends BaseBridgeHandler {
         DecodedJWT jwt = JWT.decode(tokens.getIdToken());
         if (jwt == null) {
             String message = "Error while decoding JWT token! This should not happen.";
-            logger.warn(message);
+            logger.error(message);
             throw new IllegalStateException(message);
         }
 
         Date expirationDate = jwt.getExpiresAt();
         if (expirationDate == null) {
             String message = "Expiration date of JWT token is null! This should not happen.";
-            logger.warn(message);
+            logger.error(message);
             throw new IllegalStateException(message);
         }
 
@@ -164,8 +162,8 @@ public class EneraAccountHandler extends BaseBridgeHandler {
         try {
             conn = (HttpsURLConnection) new URL(ENERA_ACCOUNT_URL).openConnection();
         } catch (IOException ex) {
-            logger.warn("Exception while creating HttpsURLConnection");
-            logger.warn(ex.getMessage());
+            logger.error("Exception while creating HttpsURLConnection");
+            logger.error(ex.getMessage());
             return new EneraAccount();
         }
 
@@ -187,7 +185,7 @@ public class EneraAccountHandler extends BaseBridgeHandler {
             responseCode = conn.getResponseCode();
             logger.trace("Response code is {}", responseCode);
         } catch (IOException ex) {
-            logger.debug("Could not connect.");
+            logger.warn("Could not connect.");
             updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR, ex.getMessage());
             return new EneraAccount();
         } finally {
@@ -196,7 +194,7 @@ public class EneraAccountHandler extends BaseBridgeHandler {
 
         if (responseCode != Response.Status.OK.getStatusCode()) {
             updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR);
-            logger.warn("Got non-OK HTTP status code '{}'", responseCode);
+            logger.error("Got non-OK HTTP status code '{}'", responseCode);
             return new EneraAccount();
         }
         /*
@@ -206,7 +204,7 @@ public class EneraAccountHandler extends BaseBridgeHandler {
          * ArrayList<EneraDevice> deviceList = gson.fromJson(jsonResult, listType);
          */
 
-        // logger.warn(jsonResult);
+        // logger.error(jsonResult);
         EneraAccount account = gson.fromJson(jsonResult, EneraAccount.class);
         this.liveUri = account.getLiveURI();
         if (this.liveUri != null && !this.liveUri.equals("")) {
