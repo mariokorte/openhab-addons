@@ -12,12 +12,18 @@
  */
 package org.openhab.binding.enera.internal.handler;
 
-import com.amazonaws.services.cognitoidentity.model.NotAuthorizedException;
-import com.amazonaws.services.cognitoidp.model.AuthenticationResultType;
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.interfaces.DecodedJWT;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import static org.openhab.binding.enera.internal.EneraBindingConstants.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.ws.rs.core.Response;
+
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.openhab.binding.enera.internal.model.AuthenticationHeaderValue;
 import org.openhab.binding.enera.internal.model.EneraAccount;
@@ -31,16 +37,12 @@ import org.openhab.core.types.Command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.net.ssl.HttpsURLConnection;
-import javax.ws.rs.core.Response;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.Date;
-
-import static org.openhab.binding.enera.internal.EneraBindingConstants.*;
+import com.amazonaws.services.cognitoidentity.model.NotAuthorizedException;
+import com.amazonaws.services.cognitoidp.model.AuthenticationResultType;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * The {@link EneraAccountHandler} is responsible for handling commands, which are

@@ -12,7 +12,19 @@
  */
 package org.openhab.binding.enera.internal.handler;
 
-import com.google.gson.Gson;
+import static org.openhab.binding.enera.internal.EneraBindingConstants.*;
+
+import java.nio.charset.StandardCharsets;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
@@ -37,18 +49,7 @@ import org.openhab.core.types.Command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-
-import static org.openhab.binding.enera.internal.EneraBindingConstants.*;
+import com.google.gson.Gson;
 
 /**
  * The {@link EneraDeviceHandler} is responsible for handling commands, which are
