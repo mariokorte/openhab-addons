@@ -108,8 +108,13 @@ public class EneraDeviceHandler extends BaseThingHandler implements MqttCallback
     public void connectMqtt() {
         this.deviceSha256 = DigestUtils.sha256Hex(getThing().getProperties().get(PROPERTY_ID));
 
+        int counter = 0;
         Bridge bridge = this.getBridge();
         while (bridge == null) {
+            if (counter == 12) {
+                this.dispose();
+                return;
+            }
             logger.trace("No bridge could be determined. Retrying.");
             try {
                 Thread.sleep(5000);
@@ -117,6 +122,7 @@ public class EneraDeviceHandler extends BaseThingHandler implements MqttCallback
                 // doesn't matter
             }
             bridge = this.getBridge();
+            counter++;
         }
 
         EneraAccountHandler handler = (EneraAccountHandler) bridge.getHandler();
